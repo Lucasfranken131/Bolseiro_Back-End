@@ -32,6 +32,10 @@ Book.prototype.putBook = function(body, callback) {
     )
 }
 
+Book.prototype.searchBook = function(searchValue, callback) {
+    this._connection.query('SELECT * FROM books WHERE book_name LIKE ?', ['%'+searchValue+'%'], callback)
+}
+
 module.exports = () => {
     return Book
 }

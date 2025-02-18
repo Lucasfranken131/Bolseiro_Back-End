@@ -9,9 +9,12 @@
   "author": "Lucasfranken131",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^3.0.1",
     "body-parser": "^1.20.3",
     "consign": "^0.1.6",
+    "cors": "^2.8.5",
     "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
     "mysql2": "^3.12.0",
     "nodemon": "^3.1.9"
   }

@@ -7,6 +7,7 @@ module.exports.getBook = (app, req, res) => {
             console.log(error)
             return res.status(500).json({ erro: 'Deu erro filhão'})
         }
+        console.log("chamado")
         return res.json(result)
     })
 }
@@ -57,6 +58,19 @@ module.exports.putBook = (app, req, res) => {
         if(error) {
             console.log(error)
             return res.status(500).json({error: "Erro ao atualizar livro"})
+        }
+        return res.json(result)
+    })
+}
+
+module.exports.searchBook = (app, req, res) => {
+    var connection = app.config.dbConnection()
+    var bookModel = new app.app.models.Book(connection)
+    var book_name = req.query.book_name
+    bookModel.searchBook(book_name, (error, result) => {
+        if(error) {
+            console.log(error)
+            return res.status(500).json({error: 'erro ao pesquisar livro'})
         }
         return res.json(result)
     })
